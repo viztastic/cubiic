@@ -1,0 +1,17 @@
+.cta-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    button, a {
+        width: 250px;
+        padding: $spacing-default/1.5;
+        font: compute-font($font-16, $font-bold);
+    }
+}
+
+.is-active-page {
+    color: #ED9C3D !important;
+  }
+  

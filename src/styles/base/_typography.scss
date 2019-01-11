@@ -1,0 +1,42 @@
+@import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,600i,700');
+@import 'base/typography-mixins';
+
+@include mat-core($sl-material-typography);
+
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+// H1 Headline Regular 24sp
+h1 {
+  font: compute-font($font-24, $sl-font-regular);
+}
+// H2 Page Title Light 20sp
+h2 {
+  font: compute-font($font-20, $sl-font-light);
+}
+
+// Create the different font classes.
+@each $name, $values in $sl-font-styles {
+  .sl-font-#{$name} {
+    @include sl-typography($name);
+  }
+
+  .sl-font-#{$name}--compact {
+    @include sl-typography-compact($name);
+  }
+
+  .sl-font-#{$name}--comfy {
+    @include sl-typography-comfy($name);
+  }
+
+  .sl-font-#{$name}--no-pad {
+    @include sl-typography-no-pad($name);
+  }
+}
+
+strong {
+  font-weight: $sl-font-semibold;
+}

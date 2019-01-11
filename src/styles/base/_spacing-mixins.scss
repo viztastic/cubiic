@@ -1,0 +1,113 @@
+@import 'base/spacing-constants';
+
+/// Returns the size of the parameter in pixels.
+/// ---
+/// @param {string} $size - @see $sl-spacing-map
+@function sl-spacing-size($size) {
+  @return map-get($_sl-spacing-map, $size);
+}
+
+/// Adds spacing to an element.
+/// ---
+/// @access private
+/// ---
+/// @param {string} $property - margin or padding
+/// @param {string} $size - the size to apply @see $sl-spacing-map
+/// @param {list} $sides - the sides to apply the margin to (top, left, bottom, right, horizontal, vertical)
+/// @param {boolean} $is-negative - whether to apply a negative value
+@mixin _sl-generic-space($property, $size, $sides, $is-negative: false) {
+  $space-amount: sl-spacing-size($size);
+
+  //Calculate the specific sides to apply the space too.
+  //(converting horizontal to left/right & vertical to top/bottom).
+  $actual-sides: ();
+  @each $side in $sides {
+    @if ($side == horizontal) {
+      $actual-sides: append(append($actual-sides, left), right);
+    } @else if ($side == vertical) {
+      $actual-sides: append(append($actual-sides, top), bottom);
+    } @else {
+      $actual-sides: append($actual-sides, $side);
+    }
+  }
+
+  //Apply the space on the provided sides.
+  @if (length($actual-sides) == 0) {
+    margin: $space-amount;
+  } @else {
+    @each $side in $_sl-spacing-sides {
+      @if (index($actual-sides, $side)) {
+        #{$property}-#{$side}: if(
+          $is-negative,
+          -1 * $space-amount,
+          $space-amount
+        );
+      }
+    }
+  }
+}
+
+/// Adds padding to an element.
+/// ---
+/// @param {string} $property - margin or padding
+/// @param {string} $size - the size to apply @see $sl-spacing-map
+/// @param {list} $sides - the sides to apply the margin to (top, left, bottom, right, horizontal, vertical)
+@mixin sl-padding($size: lg, $sides...) {
+  @include _sl-generic-space('padding', $size, $sides);
+}
+
+/// Adds margin to an element.
+/// ---
+/// @param {string} $property - margin or padding
+/// @param {string} $size - the size to apply @see $sl-spacing-map
+/// @param {list} $sides - the sides to apply the margin to (top, left, bottom, right, horizontal, vertical)
+@mixin sl-margin($size: lg, $sides...) {
+  @include _sl-generic-space('margin', $size, $sides);
+}
+
+/// Adds negative margin to an element.
+/// ---
+/// @param {string} $property - margin or padding
+/// @param {string} $size - the size to apply @see $sl-spacing-map
+/// @param {list} $sides - the sides to apply the margin to (top, left, bottom, right, horizontal, vertical)
+@mixin sl-margin-negative($size: lg, $sides...) {
+  @include _sl-generic-space('margin', $size, $sides, true);
+}
+
+/// Removes the top margin of the first element and bottom margin of the last element.
+/// ---
+/// @param {string} $selector - the selector to apply the rule too
+@mixin sl-remove-edge-y-margins($selector: '&') {
+  #{unquote($selector)} {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/// Removes the left margin of the first element and right margin of the last element.
+/// ---
+/// @param {string} $selector - the selector to apply the rule too
+@mixin sl-remove-edge-x-margins($selector: '&') {
+  #{unquote($selector)} {
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+/// Adds horizontal padding intended for a page. This takes into account breakpoints.
+@mixin sl-page-padding() {
+  display: block;
+  @include sl-padding(lg, horizontal);
+
+  @include sl-break-gt-sm {
+    @include sl-padding(xl, horizontal);
+  }
+}

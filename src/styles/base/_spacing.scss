@@ -1,0 +1,30 @@
+@import 'ic-mixins';
+
+// Create the different spacing classes.
+@each $name, $amount in $_sl-spacing-map {
+  @each $property in (padding, margin) {
+    $prefix: str-slice($property, 0, 1);
+
+    $selector: sl-#{$prefix}-#{$name};
+
+    .#{$selector} {
+      #{$property}: $amount;
+    }
+
+    @each $side in $_sl-spacing-sides {
+      .#{$selector}--#{$side} {
+        #{$property}-#{$side}: $amount;
+      }
+    }
+
+    .#{$selector}--hor {
+      @extend .#{$selector}--left !optional;
+      @extend .#{$selector}--right !optional;
+    }
+
+    .#{$selector}--ver {
+      @extend .#{$selector}--top !optional;
+      @extend .#{$selector}--bottom !optional;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import '~@angular/material/theming';
+@import 'ic-constants';
+
+@mixin incontrol-panels($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .panel-info {
+    background-color: mat-color($primary, A200);
+    color: mat-contrast($primary, A200);
+  }
+}

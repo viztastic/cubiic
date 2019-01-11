@@ -1,0 +1,151 @@
+@import '~@angular/material/theming';
+@import 'base/spacing-constants';
+@import 'base/typography-constants';
+
+// Colours
+
+// Material Navy Colours
+$color-primary-900: #151c29;
+$color-primary-800: #212a39; // primary color
+$color-primary-700: #273242;
+$color-primary-600: #2f3b4c;
+$color-primary-500: #344153; // anchor bg color
+$color-primary-400: #525e6d;
+$color-primary-300: #717a87;
+$color-primary-200: #9aa0a9;
+$color-primary-100: #c2c6cb;
+$color-primary-50: #e7e8ea;
+
+$color-accent: #fa9917;
+$color-accent-darker: #ff7300;
+$color-accent-lighter: #ffc61b;
+
+$black: #000000;
+$black-text-primary: rgba(0,0,0,.81);
+$black-text-secondary: rgba(0,0,0,.54);
+$color-offwhite: #fafafa;
+
+$body-bg: $color-offwhite;
+
+$color-primary: $color-primary-800;
+
+
+// Spacings
+
+$margin-sm: 48px;
+
+$link-color: $black-text-primary !default; // review
+$link-decoration: none !default;
+$link-hover-color: $black-text-secondary;
+$link-hover-decoration: underline !default;
+
+/** Nadim **/
+
+
+// Screen Sizes
+$xs-max: 599px;
+$sm-min: 600px;
+$sm-max: 959px;
+$md-min: 960px;
+$md-max: 1279px;
+$lg-min: 1280px;
+$mbpro-min: 1439px;
+$mbpro-max: 1440px;
+$lg-max: 1919px;
+$xl-min: 1920px;
+$xl-max: 5000px;
+
+/**
+* Animations
+**/
+// Transitionsk
+$margin-transition-duration: 700ms;
+
+/**
+* Sizings
+**/
+
+$max-page-width: 1440px;
+
+$button-cta-min-width: 250px;
+$max-form-element-width: 576px;
+$toolbar-height: 144px;
+$floating-page-max-width: 1140px;
+$max-element-width: 1024px;
+
+$text-max-width: 450px;
+
+/**
+* Spacings
+**/
+$spacing-margins-default: 80px;
+$spacing-default: $margin-sm;
+$spacing-top-gt-md: 50px;
+$spacing-left-gt-md: 80px;
+
+// Margins (deprecated)
+$margin-default: 20px;
+$margin-top-gt-md: 50px;
+$margin-left-gt-md: 80px;
+
+//Z-layers.
+$z-layer-1: 1;
+$z-layer-2: 2;
+$z-layer-3: 3;
+$z-layer-4: 4;
+$z-layer-5: 5;
+
+/**
+* Typography
+**/
+$main-font: 'raleway', Helvetica, Arial, sans-serif;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;;  // review
+
+$default-font-size: 12px;
+
+@function compute-font($size, $weight: $sl-font-regular) {
+  @return $weight #{$size}/#{$size + 4} $main-font;
+}
+
+$font-8: 8px;
+$font-9: 9px;
+$font-10: 10px;
+$font-11: 11px;
+$font-12: 12px;
+$font-14: 14px;
+$font-15: 15px;
+$font-16: 16px;
+$font-18: 18px;
+$font-20: 20px;
+$font-22: 22px;
+$font-24: 24px;
+$font-30: 30px;
+$font-36: 36px;
+
+$clr-header-bg: #344153;
+$clr-text-contrast: white;
+$clr-text-secondary: #6f6f6f;
+$clr-text-contrast-washed-out: rgba(255, 255, 255, 0.4);
+$clr-text-washed-out: rgba(0, 0, 0, 0.54);
+
+$clr-primary: #344153;
+$clr-primary-lighter: #283e4a;
+
+$clr-accent: #eaa22f;
+
+$clr-warn: #ce0d10;
+
+$clr-gray: rgba(249, 249, 249, 0.9);
+$clr-gray-lighter: rgba(153, 153, 153, 0.2);
+
+/**
+  Control Room Constants
+ */
+
+//Sidenav
+$sidenav-width-lg: 465px;
+$sidenav-width-sm: 350px;
+$sidenav-width-xs: 270px;
+
+//Action Menu
+$action-menu-width: 280px;

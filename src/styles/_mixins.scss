@@ -1,0 +1,157 @@
+@import 'constants';
+
+@mixin xs {
+  @media (max-width: $xs-max) {
+    @content;
+  }
+}
+@mixin lt-sm {
+  @media (max-width: $xs-max) {
+    @content;
+  }
+}
+@mixin lt-md {
+  @media (max-width: $sm-max) {
+    @content;
+  }
+}
+@mixin lt-lg {
+  @media (max-width: $md-max) {
+    @content;
+  }
+}
+@mixin lt-xl {
+  @media (max-width: $lg-max) {
+    @content;
+  }
+}
+@mixin gt-xs {
+  @media (min-width: $sm-min) {
+    @content;
+  }
+}
+@mixin gt-sm {
+  @media (min-width: $md-min) {
+    @content;
+  }
+}
+@mixin gt-md {
+  @media (min-width: $lg-min) {
+    @content;
+  }
+}
+@mixin gt-lg {
+  @media (min-width: $xl-min) {
+    @content;
+  }
+}
+@mixin gt-xl {
+  @media (min-width: $xl-max) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media screen and (min-width: $sm-min) and (max-width: $sm-max) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: $md-min) and (max-width: $md-max) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: $lg-min) and (max-width: $lg-max) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: $xl-min) and (max-width: $xl-max) {
+    @content;
+  }
+}
+
+/**
+* Typography
+**/
+@mixin formInput {
+  font: compute-font($font-16, $font-regular);
+}
+
+@mixin rotate($degrees) {
+  transform: rotate($degrees);
+  transition: transform 150ms;
+  transition-timing-function: ease-in-out;
+}
+
+@mixin rotateY($degrees) {
+  transform: rotateY($degrees);
+  transition: transform 150ms;
+  transition-timing-function: ease-in-out;
+}
+
+@mixin mat-icon-size($size: 24px) {
+  font-size: $size;
+  height: $size;
+  width: $size;
+}
+
+@mixin sectionContentPaddings() {
+  display: flex;
+  padding: $spacing-default*2 300px;
+  
+  @include lt-lg {
+    padding: $spacing-default*2 $spacing-default*2;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
+
+/**
+* Section Margins
+**/
+@mixin pageContentPaddings() {
+  padding: $spacing-default*3 0;
+  
+  @include lt-lg {
+    padding: $spacing-default*3 0;
+  }
+}
+/**
+* Page Margins
+**/
+@mixin pageContentMargins() {
+  margin-top: $spacing-default;
+
+  @include gt-xs {
+    margin-left: $spacing-default;
+    margin-right: $spacing-default;
+  }
+
+  @include gt-md {
+    margin-top: $spacing-top-gt-md;
+    margin-left: $spacing-left-gt-md;
+    margin-right: $spacing-left-gt-md;
+  }
+}
+
+@mixin negatePageContentMargins() {
+  margin-top: -$spacing-default;
+
+  @include gt-xs {
+    margin-left: -$spacing-default;
+    margin-right: -$spacing-default;
+  }
+
+  @include gt-md {
+    margin-top: -$spacing-top-gt-md;
+    margin-left: -$spacing-left-gt-md;
+    margin-right: -$spacing-left-gt-md;
+  }
+}
+

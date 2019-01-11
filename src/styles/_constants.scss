@@ -1,0 +1,117 @@
+@import '~@angular/material/theming';
+
+// Screen Sizes
+$xs-max: 599px;
+$sm-min: 600px;
+$sm-max: 959px;
+$md-min: 960px;
+$md-max: 1279px;
+$lg-min: 1280px;
+$lg-max: 1919px;
+$xl-min: 1920px;
+$xl-max: 5000px;
+
+/**
+* Animations
+**/
+// Transitionsk
+$margin-transition-duration: 700ms;
+
+/**
+* Sizings
+**/
+
+$button-cta-min-width: 220px;
+$max-form-element-width: 540px;
+$toolbar-height: 64px;
+$floating-page-max-width: 1160px;
+$max-element-width: 80vw;
+$max-total-width: 1440px;
+
+/**
+* Spacings
+**/
+$spacing-margins-default: 80px;
+$spacing-default: 20px;
+$spacing-top-gt-md: 50px;
+$spacing-left-gt-md: 80px;
+
+// Margins (deprecated)
+$margin-default: 20px;
+$margin-top-gt-md: 50px;
+$margin-left-gt-md: 80px;
+
+//Z-layers.
+$z-layer-1: 1;
+$z-layer-2: 2;
+$z-layer-3: 3;
+$z-layer-4: 4;
+$z-layer-5: 5;
+
+/**
+* Typography
+**/
+$main-font: 'Roboto', Helvetica, Arial, sans-serif;
+
+$default-font-size: 12px;
+
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-bold: 700;
+$font-italic: italic;
+
+@function compute-ifont($size, $style: $font-italic, $weight: $font-regular) {
+  @return $style $weight #{$size}/#{$size + 2} $main-font;
+}
+
+@function compute-font($size, $weight: $font-regular) {
+  @return $weight #{$size}/#{$size + 2} $main-font;
+}
+
+
+$font-8: 8px;
+$font-9: 9px;
+$font-10: 10px;
+$font-11: 11px;
+$font-12: 12px;
+$font-14: 14px;
+$font-15: 15px;
+$font-16: 16px;
+$font-18: 18px;
+$font-20: 20px;
+$font-22: 22px;
+$font-24: 24px;
+$font-30: 30px;
+$font-36: 36px;
+$font-42: 42px;
+$font-56: 56px;
+
+$clr-header-bg: #344153;
+$clr-text-contrast: white;
+$clr-text-secondary: #6f6f6f;
+$clr-text-contrast-washed-out: rgba(255, 255, 255, 0.4);
+$clr-text-washed-out: rgba(0, 0, 0, 0.54);
+
+$clr-primary-darker: #2f3b4c;
+$clr-primary: #344153; 
+$clr-primary-lighter: #283e4a;
+
+$clr-accent: #eaa22f;
+
+$clr-warn: #ce0d10;
+
+$clr-gray: rgba(249, 249, 249, 0.9);
+$clr-gray-lighter: rgba(153, 153, 153, 0.2);
+$clr-link-regular: #3399ff;
+/**
+  Control Room Constants
+ */
+
+//Sidenav
+$sidenav-width-lg: 465px;
+$sidenav-width-sm: 350px;
+$sidenav-width-xs: 270px;
+
+//Action Menu
+$action-menu-width: 280px;

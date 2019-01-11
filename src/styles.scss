@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import './styles/main.scss';
+
+.light-theme .mat-group .mat-form-field-appearance-legacy .mat-form-field-label{
+    color: #e5e5e5 !important;
+}
+
+.light-theme .mat-group .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: #e5e5e5 !important;
+}
+
+.light-theme .mat-group .mat-input-element {
+    color: #e5e5e5 !important;
+}
+
+.mat-group .mat-form-field-appearance-legacy .mat-form-field-ripple {
+    background-color: #e5e5e5 !important;
+}
+
+.border-line {
+    width: 100%;
+    border:0.8px solid #e0e0e0;
+}
+
+.early-access-dialog .mat-dialog-container {
+    background-color: #373a43;
+}

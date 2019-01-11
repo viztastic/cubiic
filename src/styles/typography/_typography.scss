@@ -1,0 +1,30 @@
+.section-headline {
+    font: compute-font($font-24, $font-bold);    
+}
+
+.section-impact {
+    font: compute-font($font-56, $font-bold);
+    margin-bottom: 32px;
+}
+
+.section-heroText {
+    font: compute-font($font-16, $font-regular);    
+}
+
+.section-subheading {
+    font: compute-font($font-20, $font-medium);
+}
+
+.heading-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    p {
+        max-width: 500px;
+        text-align: center;
+        &:first-child {
+            padding-top: $spacing-default;
+        }
+    }
+}

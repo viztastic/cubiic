@@ -1,0 +1,23 @@
+// Import all the tools needed to customize the theme and extract parts of it
+@import '~@angular/material/theming';
+@import 'ic-constants';
+
+@mixin incontrol-lists($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  mat-list-item.sl-no-margin-list-item {
+    height: 100%;
+    margin-top: 0%;
+  }
+
+  mat-list-item.sl-no-padding-list-item-content .mat-list-item-content {
+    padding: 0;
+  }
+
+  mat-nav-list {
+    a.mat-list-item.active-link {
+      color: mat-color($primary, A200);
+    }
+  }
+}

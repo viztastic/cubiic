@@ -1,0 +1,13 @@
+@import 'theme-light';
+@import 'theme-dark';
+@import 'component-themes';
+
+.light-theme {
+  @include angular-material-theme($sl-theme);
+  @include sl-component-themes($sl-theme);
+}
+
+.dark-theme {
+  @include angular-material-theme($sl-dark-theme);
+  @include sl-component-themes($sl-dark-theme);
+}

@@ -1,0 +1,20 @@
+@import 'core-theme';
+@import 'themes/buttons/button.theme';
+@import 'themes/dialogs/dialog.theme';
+@import 'themes/forms/form.theme';
+@import 'themes/tables/table.theme';
+@import 'themes/panels/panel.theme';
+@import 'themes/lists/list.theme';
+@import 'themes/toolbars/toolbar.theme';
+
+@mixin sl-component-themes($theme) {
+  @include sl-core-theme($theme);
+
+  @include incontrol-buttons($theme);
+  @include incontrol-form-fields($theme);
+  @include incontrol-tables($theme);
+  @include incontrol-dialog-panel($theme);
+  @include incontrol-lists($theme);
+  @include incontrol-panels($theme);
+  @include incontrol-toolbars($theme);
+}

@@ -1,0 +1,147 @@
+$dark-primary-text: rgba(0, 0, 0, 0.87);
+$light-primary-text: #fff;
+
+$control-rooms-primary: (
+  50: #e7e8ea,
+  100: #c2c6cb,
+  200: #9aa0a9,
+  300: #717a87,
+  400: #525e6d,
+  500: #344153,
+  600: #2f3b4c,
+  700: #273242,
+  800: #212a39,
+  900: #151c29,
+  A100: #6ca0ff,
+  A200: #397fff,
+  A400: #065eff,
+  A700: #0053eb,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  ),
+);
+
+$control-rooms-accent: (
+  50: #fef3e3,
+  100: #fee0b9,
+  200: #fdcc8b,
+  300: #fcb85d,
+  400: #fba83a,
+  500: #fa9917,
+  600: #f99114,
+  700: #f98611,
+  800: #f87c0d,
+  900: #2ac9c4,
+  /*This is the secondary accent color.*/ A100: #ffffff,
+  A200: #fff3eb,
+  A400: #ffd2b8,
+  A700: #ffc29f,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  ),
+);
+
+$control-rooms-warn: (
+  50: #ffe0ee,
+  100: #ffb3d5,
+  200: #ff80b9,
+  300: #ff4d9d,
+  400: #ff2688,
+  500: #ff0073,
+  600: #ff006b,
+  700: #ff0060,
+  800: #ff0056,
+  900: #ff0043,
+  A100: #ffffff,
+  A200: #fff2f5,
+  A400: #ffbfcc,
+  A700: #ffa6b8,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  ),
+);
+
+$billing: (
+  50: #f0fae4,
+  100: #d8f2bc,
+  200: #bfe990,
+  300: #a5e064,
+  400: #91da42,
+  500: #7ed321,
+  600: #76ce1d,
+  700: #6bc818,
+  800: #61c214,
+  900: #4eb70b,
+  A100: #edffe4,
+  A200: #cbffb1,
+  A400: #aaff7e,
+  A700: #99ff64,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  ),
+);
+
+$sl-primary: mat-palette($control-rooms-primary);
+$sl-accent: mat-palette($control-rooms-accent);
+$sl-warn: mat-palette($control-rooms-warn);
+$sl-billing: mat-palette($billing);
+
+$sl-theme: mat-light-theme($sl-primary, $sl-accent, $sl-warn);
+$sl-theme: map-merge(
+  $sl-theme,
+  (
+    billing: $sl-billing,
+  )
+);

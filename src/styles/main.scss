@@ -1,0 +1,57 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@import 'ic-constants';
+@import 'ic-mixins';
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/spacing';
+@import 'base/buttons';
+
+@import 'themes/module';
+
+body {
+  position: relative;
+  min-height: 100vh;
+  font-family: $main-font;
+}
+
+html {
+  font-size: $default-font-size;
+  box-sizing: border-box;
+
+  &.no-scroll {
+    &,
+    body {
+      position: relative;
+      overflow: hidden;
+    }
+  }
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  .centered-page {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hide-title {
+    visibility: hidden;
+  }
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index: 200;
+  width: 100%;
+}

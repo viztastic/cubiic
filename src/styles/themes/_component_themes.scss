@@ -1,0 +1,20 @@
+@import 'core-theme';
+@import 'header.theme';
+// @import 'pages/event-types/event-type-form-page/event-type-developer-info/event-type-schema.theme';
+// @import 'pages/control-rooms/control-room-page/control-room-map/leaflet-map/_map.theme.scss';
+@import 'themes/buttons/button.theme';
+// @import 'themes/forms/form.theme';
+// @import 'themes/dialogs/dialog.theme';
+// @import 'pages/accounts/accounts-page/accounts-toolbar/accounts-toolbar.theme';
+
+@mixin slic-component-themes($theme) {
+  @include slic-core-theme($theme);
+  @include header($theme);
+//   @include incontrol-event-type-schema($theme);
+//   @include map-theme($theme);
+
+  @include incontrol-buttons($theme);
+//   @include incontrol-form-fields($theme);
+//   @include incontrol-dialog-panel($theme);
+//   @include accounts-toolbar($theme);
+}

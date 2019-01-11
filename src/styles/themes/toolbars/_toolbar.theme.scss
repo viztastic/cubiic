@@ -1,0 +1,27 @@
+@import '~@angular/material/theming';
+@import 'ic-constants';
+
+@mixin incontrol-toolbars($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  mat-toolbar.sl-small-font-toolbar {
+    height: 45px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;        
+
+    & .mat-icon-button {
+      line-height: 18px;
+      height: 24px;
+      width: 24px;
+
+      & .mat-icon {
+        font-size: 18px;
+        height: 18px;
+        width: 18px;
+        line-height: 18px;
+      }
+    }
+  }
+}

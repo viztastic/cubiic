@@ -1,0 +1,167 @@
+// Import all the tools needed to customize the theme and extract parts of it
+@import '~@angular/material/theming';
+@import 'ic-theming';
+
+$_sl-button-xl-min-width: 385px;
+$_sl-button-primary-min-width: 256px;
+$_sl-button-secondary-min-width: 128px;
+$_sl-button-action-min-width: 64px;
+
+@mixin _sl-button-xl($compact: false) {
+  &.sl-button--xl {
+    @if ($compact) {
+      @include sl-typography-compact(h3);
+    } @else {
+      @include sl-margin(lg, vertical);
+      @include sl-typography-comfy(h3);
+      font-weight: $sl-font-bold;
+    }
+
+    min-width: $_sl-button-xl-min-width;
+    height: 48px;
+  }
+}
+
+@mixin _sl-button-secondary() {
+  &.sl-button--secondary {
+    @include sl-typography-compact(h8);
+
+    &[mat-button] {
+      @include sl-typography-compact(text);
+      font-weight: $sl-font-bold;
+    }
+
+    min-width: $_sl-button-secondary-min-width;
+    height: 36px;
+  }
+}
+
+@mixin _sl-button-action() {
+  &.sl-button--action {
+    @include sl-typography-no-pad(text);
+    font-weight: $sl-font-bold;
+    min-width: $_sl-button-action-min-width;
+    height: 40px;
+  }
+}
+
+@mixin _sl-button-primary() {
+  @include sl-typography-no-pad(h3);
+  min-width: $_sl-button-primary-min-width;
+  height: 40px;
+}
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin incontrol-buttons($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  $all-buttons-selector: '[mat-button], [mat-raised-button], [mat-icon-button], [mat-stroked-button], [mat-flat-button]';
+
+  #{$all-buttons-selector} {
+    @include _sl-button-primary;
+  }
+
+  [mat-raised-button] {
+    // text-transform: capitalize;
+    border-radius: 5px;
+
+    // Remove elevation (except on hover) when the button has a color.
+    &[color] {
+      @include mat-elevation(0);
+      line-height: 40px;
+
+      &:hover {
+        @include mat-elevation(5);
+        @include mat-elevation-transition(800);
+      }
+    }
+
+    @include _sl-button-xl(false);
+    @include _sl-button-secondary;
+    @include _sl-button-action;
+  }
+
+  [mat-button] {
+    @include _sl-button-xl(true);
+    @include _sl-button-secondary;
+  }
+
+  [mat-icon-button] {
+    min-width: 0px !important;
+  }
+
+  // Renders buttons in a horizontal row.
+  .sl-button-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    // We add a negative margin to negative the top margin on the first row of buttons in the
+    // button-row (the margin exists so that there is vertical space between the buttons when
+    // they wrap).
+    @include sl-margin-negative(lg, top);
+
+    #{$all-buttons-selector} {
+      @include sl-margin(xl, right);
+      @include sl-margin(lg, top);
+
+      @include sl-remove-edge-x-margins();
+    }
+  }
+
+  // Renders buttons in a vertical column.
+  .sl-button-column {
+    display: inline-flex;
+    flex-direction: column;
+
+    #{$all-buttons-selector} {
+      @include sl-margin(lg, bottom);
+      @include sl-remove-edge-y-margins();
+      width: 100%;
+    }
+  }
+
+  // Add a spinner to the button to be used as a loading indicator.
+  #{$all-buttons-selector} {
+    transition: opacity 150ms;
+    .mat-button-wrapper {
+      transition: opacity 1s;
+    }
+
+    &.inflight {
+      $spinner-size: 32px;
+      position: relative;
+      opacity: 0.5;
+      pointer-events: none;
+
+      .mat-button-wrapper {
+        opacity: 0;
+      }
+
+      &:after {
+        position: absolute;
+        top: calc(50% - (#{$spinner-size} / 2));
+        left: calc(50% - (#{$spinner-size} / 2));
+        display: block;
+        content: '';
+        width: $spinner-size;
+        height: $spinner-size;
+        margin: 1px;
+        border-radius: 50%;
+        border: 3px solid currentColor;
+        border-color: currentColor transparent currentColor transparent;
+        animation: sl-button-saving-spinner 1.2s linear infinite;
+      }
+    }
+
+    @keyframes sl-button-saving-spinner {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

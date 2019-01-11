@@ -1,0 +1,177 @@
+@mixin sl-bg-color($background-color, $foreground-color) {
+  background-color: $background-color;
+  color: $foreground-color;
+
+  mat-spinner {
+    circle {
+      stroke: $foreground-color;
+    }
+  }
+
+  a,
+  .link {
+    color: rgba($foreground-color, 0.54);
+
+    &.active,
+    &:hover {
+      color: $foreground-color;
+    }
+  }
+}
+
+@mixin sl-core-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  color: mat-color($foreground, text);
+
+  a,
+  .link {
+    color: mat-color($primary);
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+      color: mat-color($primary, darker);
+    }
+
+    &.link-contrast {
+      color: mat-color($primary, 50) !important;
+
+      &:hover {
+        color: mat-color($primary, 100) !important;
+      }
+    }
+
+    &.text-link {
+      border-bottom: 5px solid mat-color($accent, 50);
+
+      &:hover {
+        border-bottom-color: mat-color($accent, 100);
+      }
+    }
+
+    &.text-link-grey {
+      border-bottom: 5px solid rgba(232, 230, 217, 0.3);
+
+      &:hover {
+        border-bottom-color: rgba(232, 230, 217, 0.5);
+      }
+    }
+  }
+
+  .disabled-link {
+    color: mat-color($primary, 0.5);
+  }
+
+  .clr-text {
+    color: mat-color($foreground, text);
+  }
+
+  .clr-secondary-text {
+    color: mat-color($foreground, secondary-text);
+  }
+
+  .clr-primary {
+    color: mat-color($primary);
+  }
+
+  .clr-primary--darker {
+    color: mat-color($primary, darker);
+  }
+
+  .clr-primary--lighter {
+    color: mat-color($primary, 300);
+  }
+
+  .clr-accent {
+    color: mat-color($accent);
+  }
+
+  .clr-warn {
+    color: mat-color($warn);
+  }
+
+  .clr-contrast {
+    color: mat-color($primary, default-contrast);
+  }
+
+  .clr-border-primary {
+    border-color: mat-color($primary);
+  }
+
+  .clr-border-primary--50 {
+    border-color: mat-color($primary, 50);
+  }
+
+  .clr-border-accent {
+    border-color: mat-color($accent);
+  }
+
+  .clr-border-warn {
+    border-color: mat-color($warn);
+  }
+
+  .clr-bg-default {
+    @include sl-bg-color(
+      mat-color($background, card),
+      mat-color($foreground, text)
+    );
+  }
+
+  .clr-bg-primary {
+    @include sl-bg-color(
+      mat-color($primary),
+      mat-color($primary, default-contrast)
+    );
+  }
+
+  .clr-bg-primary--darker {
+    @include sl-bg-color(
+      mat-color($primary, darker),
+      mat-color($primary, default-contrast)
+    );
+  }
+
+  .clr-bg-primary--a200 {
+    @include sl-bg-color(
+      mat-color($primary, A200),
+      mat-contrast($primary, A200)
+    );
+  }
+
+  .clr-bg-accent {
+    @include sl-bg-color(
+      mat-color($accent),
+      mat-color($accent, default-contrast)
+    );
+  }
+
+  .clr-bg-secondary-accent {
+    @include sl-bg-color(
+      mat-color($accent, 900),
+      mat-color($accent, default-contrast)
+    );
+  }
+
+  .clr-bg-warn {
+    @include sl-bg-color(mat-color($warn), mat-color($warn, default-contrast));
+  }
+
+  .clr-bg-app {
+    @include sl-bg-color(
+      mat-color($background, background),
+      mat-color($foreground, text)
+    );
+  }
+
+  .clr-bg-status {
+    @include sl-bg-color(
+      mat-color($background, status-bar),
+      mat-color($foreground, text)
+    );
+  }
+}

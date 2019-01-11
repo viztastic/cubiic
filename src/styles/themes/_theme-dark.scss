@@ -1,0 +1,53 @@
+$dark-primary-text: rgba(0, 0, 0, 0.87);
+$light-primary-text: #fff;
+
+$billing: (
+  50: #f0fae4,
+  100: #d8f2bc,
+  200: #bfe990,
+  300: #a5e064,
+  400: #91da42,
+  500: #7ed321,
+  600: #76ce1d,
+  700: #6bc818,
+  800: #61c214,
+  900: #4eb70b,
+  A100: #edffe4,
+  A200: #cbffb1,
+  A400: #aaff7e,
+  A700: #99ff64,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  ),
+);
+
+$sl-dark-primary: mat-palette($mat-blue-grey);
+$sl-dark-accent: mat-palette($mat-amber, A200, A100, A400);
+$sl-dark-warn: mat-palette($mat-deep-orange);
+$sl-billing: mat-palette($billing);
+
+$sl-dark-theme: mat-dark-theme(
+  $sl-dark-primary,
+  $sl-dark-accent,
+  $sl-dark-warn
+);
+
+$sl-dark-theme: map-merge(
+  $sl-dark-theme,
+  (
+    billing: $sl-billing,
+  )
+);

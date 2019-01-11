@@ -1,0 +1,78 @@
+// Import all the tools needed to customize the theme and extract parts of it
+@import '~@angular/material/theming';
+@import 'ic-theming';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin incontrol-tables($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .mat-table {
+    .mat-header-cell,
+    .mat-sort-header-button {
+      @include sl-typography(h4);
+    }
+
+    .mat-cell,
+    .mat-footer-cell {
+      @include sl-typography(text);
+    }
+  }
+}
+
+/**
+  * Renders up to 4 mat-form-fields on a single row (depending on the size of the screen).
+ */
+.sl-form-row {
+  width: 100%;
+  max-width: $max-form-element-width;
+
+  /**
+   * Renders the last field as full-width (on smaller screens) if there are an uneven
+   * number of fields.
+   */
+  @function render-last-field-full-width($num-fields) {
+    @return $num-fields % 2 != 0;
+  }
+
+  @mixin handle-smaller-screens($margin, $num-fields) {
+    //Only support up to two form-fields in a row.
+    @include sl-break-lt-md {
+      @if ($num-fields > 2) {
+        width: calc((100% - #{$margin}) / 2);
+
+        &:nth-child(3) {
+          margin-left: 0;
+          @if (render-last-field-full-width($num-fields)) {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    //Display each field at 100% width.
+    @include sl-break-lt-sm {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+
+  $margin-size: sl-spacing-size(xl);
+
+  $max-fields-per-row: 4;
+  @for $i from 2 through $max-fields-per-row {
+    //This rule is match when the total number of form fields is equal to $i.
+    mat-form-field:first-child:nth-last-child(#{$i}),
+    mat-form-field:first-child:nth-last-child(#{$i}) ~ mat-form-field {
+      @include sl-remove-edge-x-margins();
+      @include sl-margin(xl, left);
+
+      //Calculate the width of each element taking into account the margin between each element.
+      $combined-margins: ($margin-size * ($i - 1));
+      width: calc((100% - #{$combined-margins}) / #{$i});
+
+      @include handle-smaller-screens($margin-size, $i);
+    }
+  }
+}

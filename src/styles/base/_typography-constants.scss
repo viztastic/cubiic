@@ -1,0 +1,127 @@
+$sl-font-light: 300;
+$sl-font-regular: 400;
+$sl-font-medium: 500;
+$sl-font-semibold: 600;
+$sl-font-bold: 700;
+$sl-font-black: 800;  // ahmed
+
+$sl-font-sizes: (
+  sm: 12px,
+  md: 14px,
+  lg: 16px,
+  xl: 18px,
+  2xl: 26px,    // section-tagline, featured (+2px)
+  3xl: 36px,    // section-description
+  4xl: 40px,
+  5xl: 60px,    // section-header
+);
+
+// font-size, line-height, height, weight
+$sl-font-styles: (
+  section-header: (
+    5xl,
+    62px,
+    60px,
+    $sl-font-semibold,
+  ),
+  section-tagline: (
+    2xl,
+    28px,
+    28px,
+    $sl-font-regular,
+  ),
+  section-description: (
+    3xl,
+    38px,
+    38px,
+    $sl-font-black,
+  ),
+  h0: (
+    4xl,
+    42px,
+    48px,
+    $sl-font-black,
+  ),
+  h1: (
+    3xl,
+    45px,
+    80px,
+    $sl-font-semibold,
+  ),
+  h1-medium: (
+    2xl,
+    28px,
+    48px,
+    $sl-font-medium,
+  ),
+  h1-bold: (
+    2xl,
+    28px,
+    48px,
+    $sl-font-bold,
+  ),
+  h1content: (
+    xl,
+    22px,
+    40px,
+    $sl-font-medium,
+  ),
+  h1content-bold: (
+    xl,
+    22px,
+    40px,
+    $sl-font-bold,
+  ),
+  h2: (
+    2xl,
+    28px,
+    48px,
+    $sl-font-semibold,
+  ),
+  h3: (
+    xl,
+    22px,
+    40px,
+    $sl-font-semibold,
+  ),
+  h4: (
+    lg,
+    22px,
+    40px,
+    $sl-font-semibold,
+  ),
+  h5: (
+    lg,
+    20px,
+    40px,
+    $sl-font-medium,
+  ),
+  h6: (
+    sm,
+    16px,
+    40px,
+    $sl-font-semibold,
+  ),
+  h7: (
+    sm,
+    16px,
+    40px,
+    $sl-font-medium,
+  ),
+  h8: (
+    sm,
+    17px,
+    40px,
+    $sl-font-semibold,
+  ),
+  text: (
+    md,
+    19px,
+    40px,
+    $sl-font-regular,
+  ),
+);
+
+$sl-material-typography: mat-typography-config(
+  $font-family: 'raleway, Helvetica, Arial, sans-serif',
+);

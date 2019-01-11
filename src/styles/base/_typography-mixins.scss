@@ -1,0 +1,89 @@
+@import 'base/typography-constants';
+
+@mixin sl-typography-sectionHeader {
+  font-size: 40px;
+  line-height: 42px;
+  font-weight: $sl-font-black;
+}
+
+@mixin sl-typography-lightLargeText {
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: $sl-font-regular;
+}
+
+@function _sl-font-size($size) {
+  @return map-get($sl-font-sizes, $size);
+}
+
+@function _sl-font-style-size($style) {
+  @return nth(map-get($sl-font-styles, $style), 1);
+}
+
+@function _sl-font-style-line-height($style) {
+  @return nth(map-get($sl-font-styles, $style), 2);
+}
+
+@function _sl-font-style-height($style) {
+  @return nth(map-get($sl-font-styles, $style), 3);
+}
+
+@function _sl-font-style-weight($style) {
+  @return nth(map-get($sl-font-styles, $style), 4);
+}
+
+@mixin sl-typography($style, $mode: default) {
+  $font-weight: _sl-font-style-weight($style);
+  $font-size: _sl-font-size(_sl-font-style-size($style));
+  $line-height: _sl-font-style-line-height($style);
+  $height: _sl-font-style-height($style);
+
+  @if ($mode == 'compact') {
+    $height: $height - 8;
+  } @else if ($mode == 'comfy') {
+    $height: $height + 8;
+  }
+
+  font-weight: $font-weight;
+  font-size: _sl-font-size(_sl-font-style-size($style));
+  line-height: _sl-font-style-line-height($style);
+
+  @if ($mode != 'tight') {
+    padding-top: (($height - $line-height) / 2);
+    padding-bottom: (($height - $line-height) / 2);
+  }
+}
+
+@mixin sl-typography-compact($style) {
+  @include sl-typography($style, 'compact');
+}
+
+@mixin sl-typography-comfy($style) {
+  @include sl-typography($style, 'comfy');
+}
+
+@mixin sl-typography-no-pad($style) {
+  @include sl-typography($style, 'tight');
+}
+
+@each $name, $values in $sl-font-styles {
+  .sl-font-#{$name} {
+    @include sl-typography($name);
+  }
+
+  .sl-font-#{$name}--compact {
+    @include sl-typography-compact($name);
+  }
+
+  .sl-font-#{$name}--comfy {
+    @include sl-typography-comfy($name);
+  }
+
+  .sl-font-#{$name}--no-pad {
+    @include sl-typography-no-pad($name);
+  }
+}
+
+strong {
+  font-weight: $sl-font-semibold;
+}
