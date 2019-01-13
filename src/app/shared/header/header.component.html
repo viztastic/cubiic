@@ -1,0 +1,16 @@
+<nav>
+  <div class="logo">
+    cubiic
+  </div>
+  <span class="filler"></span>
+  <ul>
+      <li *ngFor="let link of cubiicHeaderContents.nav">
+        <a *ngIf="link.isOnSamePage" 
+          
+          [href]="link.idRef" pageScroll>{{link.label}}</a>
+        <a *ngIf="!link.isOnSamePage"
+          [routerLinkActive]="link.isActive ? 'is-active-nav' : ''"
+          [routerLink]="link.url" [fragment]="link.fragment">{{link.label}}</a>
+      </li>
+  </ul>
+</nav>

@@ -1,0 +1,70 @@
+@import 'ic-constants';
+@import 'ic-mixins';
+
+:host {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: $max-page-width;
+  padding: 0 $margin-sm/2;
+  width: 100%;
+  min-height: 128px;
+  background-color: #258ea4;
+  // background-color: #478ca1;
+}
+
+.filler {
+  flex: 1 1 auto;
+}
+
+nav {
+  padding: $margin-sm/2;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+
+  .logo {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: $sl-font-regular;
+    padding: $margin-sm/4 $margin-sm/2;
+    background-color: #71bfd4;
+  }
+    ul {
+      @include sl-break-lt-md {
+        display: none;
+      }
+      margin: 0;
+      li {
+        @include sl-typography-no-pad(h5);
+        display: inline-block;
+        box-sizing: border-box;
+        list-style-type: none;
+        a {
+          display: inline-block;
+          padding: $margin-sm/6 0;
+          text-align: center;
+          color: white;
+          transition: color .1s ease-in-out;
+
+          &:hover {
+            border-bottom-color: $color-primary-900;
+            color: #efefef;
+            border-bottom-style: solid;
+            border-bottom-width: 2px;
+            margin-top: -2px;  // to offset jitter
+            text-decoration: none;
+          }
+        }
+        margin-right: $margin-sm;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    
+
+
+  }
